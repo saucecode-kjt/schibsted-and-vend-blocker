@@ -1,0 +1,48 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "requestDomains": [
+        "cmp.vg.no",
+        "cmp.aftenposten.no",
+        "cmp.e24.no",
+        "cmp.bt.no",
+        "cmp.aftenbladet.no",
+        "cmp.aftonbladet.se",
+        "cmp.svd.se",
+        "cmp.omni.se",
+        "cmp.tv4.se",
+        "cmp.fotbollskanalen.se"
+      ],
+      "initiatorDomains": [
+        "vg.no",
+        "aftenposten.no",
+        "e24.no",
+        "bt.no",
+        "aftenbladet.no",
+        "aftonbladet.se",
+        "svd.se",
+        "omni.se",
+        "tv4.se",
+        "fotbollskanalen.se"
+      ],
+      "resourceTypes": [
+        "main_frame",
+        "sub_frame",
+        "stylesheet",
+        "script",
+        "image",
+        "font",
+        "object",
+        "xmlhttprequest",
+        "ping",
+        "csp_report",
+        "media",
+        "websocket",
+        "other"
+      ]
+    }
+  }
+]

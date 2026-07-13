@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "Schibsted & Vend Blocker",
+  "version": "1.0.0",
+  "description": "Schibsted & Vend blocker extension",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://vg.no/*",
+        "https://*.vg.no/*",
+        "https://aftenposten.no/*",
+        "https://*.aftenposten.no/*",
+        "https://e24.no/*",
+        "https://*.e24.no/*",
+        "https://bt.no/*",
+        "https://*.bt.no/*",
+        "https://aftenbladet.no/*",
+        "https://*.aftenbladet.no/*",
+        "https://aftonbladet.se/*",
+        "https://*.aftonbladet.se/*",
+        "https://svd.se/*",
+        "https://*.svd.se/*",
+        "https://omni.se/*",
+        "https://*.omni.se/*",
+        "https://tv4.se/*",
+        "https://*.tv4.se/*",
+        "https://fotbollskanalen.se/*",
+        "https://*.fotbollskanalen.se/*"
+      ],
+      "js": ["content-scripts/schibsted-and-vend-blocker.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "cmp_block",
+        "enabled": true,
+        "path": "rules/cmp-block.json"
+      }
+    ]
+  },
+  "permissions": ["declarativeNetRequest"]
+}

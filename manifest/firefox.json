@@ -1,0 +1,14 @@
+{
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{ab5023c4-083c-4c6c-a8ac-c1ed60831492}",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    },
+    "gecko_android": {
+      "strict_min_version": "142.0"
+    }
+  }
+}
