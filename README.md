@@ -75,3 +75,8 @@ This is temporary — it's removed when Firefox closes, and needs re-loading aft
 For a smoother loop, `npm run start:firefox` launches Firefox via `web-ext run`, which auto-reloads the extension whenever `dist/firefox` changes (pair it with `npm run dev` running in another terminal for live-reload on source changes).
 
 Run `npm run lint` before submitting to AMO — it runs the same `addons-linter` checks Mozilla's own validator uses.
+
+## Store dashboards
+
+- [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole/)
+- [Firefox Add-on Developer Hub](https://addons.mozilla.org/developers/)
