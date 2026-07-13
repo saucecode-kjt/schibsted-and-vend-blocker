@@ -1,0 +1,9 @@
+node_modules/
+build/
+dist/
+.idea
+web-ext-artifacts/
+*.xpi
+*.zip
+.web-extension-id
+
