@@ -80,3 +80,7 @@ Run `npm run lint` before submitting to AMO — it runs the same `addons-linter`
 
 - [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole/)
 - [Firefox Add-on Developer Hub](https://addons.mozilla.org/developers/)
+
+## License
+
+GPL-3.0. Forks and derivatives must also be open-sourced under GPL-3.0 and credit the original author, Jan Thore Skjelfjord. See [LICENSE](LICENSE) for the full text.
