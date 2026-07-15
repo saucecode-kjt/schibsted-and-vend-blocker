@@ -7,7 +7,7 @@ const BUILD_DIR = path.join(ROOT, 'build');
 const ICONS_DIR = path.join(ROOT, 'public', 'icons');
 const RULES_DIR = path.join(ROOT, 'rules');
 const MANIFEST_DIR = path.join(ROOT, 'manifest');
-const TARGETS = ['chrome', 'firefox'];
+const TARGETS = ['chromium', 'firefox'];
 
 function readJson(file) {
   return JSON.parse(readFileSync(file, 'utf-8'));
