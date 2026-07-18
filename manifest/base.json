@@ -32,6 +32,7 @@
         "https://fotbollskanalen.se/*",
         "https://*.fotbollskanalen.se/*"
       ],
+      "css": ["content-scripts/schibsted-and-vend-blocker.css"],
       "js": ["content-scripts/schibsted-and-vend-blocker.js"],
       "run_at": "document_idle"
     }

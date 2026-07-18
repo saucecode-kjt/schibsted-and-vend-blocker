@@ -1,0 +1,9 @@
+/* Fallback for the consent dialog: hides it immediately via CSS in case the
+   MutationObserver in schibsted-and-vend-blocker.js hasn't run yet (or fails
+   to match a markup change). The JS still removes the element from the DOM
+   and undoes the scroll lock; this only prevents a visual flash. */
+[id^="sp_message_container_"],
+iframe[src*="cmp"],
+iframe[id^="sp_message_iframe_"] {
+  display: none !important;
+}
