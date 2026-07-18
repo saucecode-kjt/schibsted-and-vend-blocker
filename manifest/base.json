@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Schibsted & Vend Blocker",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Schibsted & Vend blocker extension",
   "icons": {
     "16": "icons/logo-16.png",
@@ -35,15 +35,5 @@
       "js": ["content-scripts/schibsted-and-vend-blocker.js"],
       "run_at": "document_idle"
     }
-  ],
-  "declarative_net_request": {
-    "rule_resources": [
-      {
-        "id": "cmp_block",
-        "enabled": true,
-        "path": "rules/cmp-block.json"
-      }
-    ]
-  },
-  "permissions": ["declarativeNetRequest"]
+  ]
 }

@@ -1,16 +1,15 @@
 # Schibsted & Vend Blocker
 
-A browser extension (Chromium + Firefox) that removes the  cookie/tracking-consent pop-up on ten Nordic news sites, restores the page scrolling that pop-up locks, and blocks the network requests that load it in the first place.
+A browser extension (Chromium + Firefox) that removes the cookie/tracking-consent pop-up on ten Nordic news sites and restores the page scrolling that pop-up locks.
 
 ## Description
 
 On vg.no, aftenposten.no, e24.no, bt.no, aftenbladet.no, aftonbladet.se, svd.se, omni.se, tv4.se, and fotbollskanalen.se (and their subdomains), this extension:
 
-- **Removes the consent iframe.** A `MutationObserver` watches for elements matching Schibsted's markup (`iframe[src*="cmp"]`, or ids starting with `sp_message_iframe_`) and deletes them the instant they're inserted — removing the nearest `sp_message_container_*` wrapper if one exists, otherwise the iframe's immediate parent (never `<body>`).
-- **Blocks the tracking subdomain.** A static `declarativeNetRequest` rule blocks requests to each site's `cmp.<domain>` subdomain, scoped so it only applies when the request originates from that same site.
-- **Restores scrolling.** Schibsted locks `<body>` (`overflow: hidden; position: fixed`) while its dialog is "open." A second observer strips that lock's trigger class the moment it appears, and force-resets `overflow`/`position` on `<html>`, `<body>`, and `main#application` whenever it finds them actually locked, regardless of what caused it.
+- **Removes the consent iframe.** A `MutationObserver` watches for elements matching Schibsted's markup (`iframe[src*="cmp"]`, or ids starting with `sp_message_iframe_`) and deletes them the instant they're inserted — removing the nearest `sp_message_container_*` wrapper if one exists, otherwise the iframe's immediate parent (never `<body>`). A static stylesheet hides the same elements via `display: none` as a fallback, in case the observer hasn't run yet.
+- **Restores scrolling.** Schibsted locks `<body>` (`overflow: hidden; position: fixed`) while its dialog is "open." A second observer strips that lock's trigger class the moment it appears, and force-resets `overflow`/`position` on `<html>`, `<body>`, and `main#application`, but only when there's evidence the consent dialog is what applied the lock — other page features (e.g. video players) use the same styles legitimately and are left alone.
 
-It requests only the `declarativeNetRequest` permission, collects no data, and needs no account or login.
+It requests no permissions, collects no data, and needs no account or login. (An earlier version also blocked each site's `cmp.<domain>` subdomain via `declarativeNetRequest`, but that subdomain is shared with video ad requests on some sites — blocking it broke video playback, so it was removed.)
 
 Both browser targets are built from the same source — one content script, one DNR ruleset — with only the manifest differing per browser (Firefox needs `browser_specific_settings`, Chromium doesn't).
 
@@ -83,4 +82,6 @@ Run `npm run lint` before submitting to AMO — it runs the same `addons-linter`
 
 ## License
 
-GPL-3.0. Forks and derivatives must also be open-sourced under GPL-3.0 and credit the original author, Jan Thore Skjelfjord. See [LICENSE](LICENSE) for the full text.
+GPL-3.0. Forks and derivatives must also be open-sourced under GPL-3.0 and credit the original author, Jan Thore Skjelfjord. See [LICENSE](LICENSE) for the full text."
+
+LibreWolf has prevented this site from installing an unverified add-on.

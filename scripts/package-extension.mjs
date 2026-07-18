@@ -5,8 +5,8 @@ import { fileURLToPath } from 'node:url';
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const BUILD_DIR = path.join(ROOT, 'build');
 const ICONS_DIR = path.join(ROOT, 'public', 'icons');
-const RULES_DIR = path.join(ROOT, 'rules');
 const MANIFEST_DIR = path.join(ROOT, 'manifest');
+const CSS_FILE = path.join(ROOT, 'src', 'features', 'schibsted-and-vend-blocker', 'schibsted-and-vend-blocker.css');
 const TARGETS = ['chromium', 'firefox'];
 
 function readJson(file) {
@@ -28,7 +28,7 @@ export function packageExtension(targets = TARGETS) {
 
     cpSync(path.join(BUILD_DIR, 'content-scripts'), path.join(outDir, 'content-scripts'), { recursive: true });
     cpSync(ICONS_DIR, path.join(outDir, 'icons'), { recursive: true });
-    cpSync(RULES_DIR, path.join(outDir, 'rules'), { recursive: true });
+    cpSync(CSS_FILE, path.join(outDir, 'content-scripts', 'schibsted-and-vend-blocker.css'));
 
     const manifest = buildManifest(target);
     writeFileSync(path.join(outDir, 'manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`);

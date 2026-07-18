@@ -38,16 +38,31 @@ function unlockScrollable(element) {
   }
 }
 
+function isConsentDialogLocking() {
+  // Only treat html/body as consent-locked if there's actual evidence of the
+  // CMP dialog (its trigger class or a leftover container/iframe). Other page
+  // features (e.g. video players) legitimately use overflow:hidden/position:fixed
+  // too, and unlocking those unconditionally causes an infinite fight with the
+  // site's own script re-applying its lock.
+  return (
+    document.documentElement.classList.contains(SCROLL_LOCK_CLASS) ||
+    document.body.classList.contains(SCROLL_LOCK_CLASS) ||
+    !!document.querySelector('[id^="sp_message_container_"], iframe[id^="sp_message_iframe_"]')
+  );
+}
+
 function enforceScrollable() {
   // Temporarily disconnect observer to prevent triggering a mutation event on our own changes
   scrollLockObserver.disconnect();
 
-  document.documentElement.classList.remove(SCROLL_LOCK_CLASS);
-  document.body.classList.remove(SCROLL_LOCK_CLASS);
+  if (isConsentDialogLocking()) {
+    document.documentElement.classList.remove(SCROLL_LOCK_CLASS);
+    document.body.classList.remove(SCROLL_LOCK_CLASS);
 
-  unlockScrollable(document.documentElement);
-  unlockScrollable(document.body);
-  unlockScrollable(document.querySelector(MAIN_CONTENT_SELECTOR));
+    unlockScrollable(document.documentElement);
+    unlockScrollable(document.body);
+    unlockScrollable(document.querySelector(MAIN_CONTENT_SELECTOR));
+  }
 
   // Reconnect after cleanup
   reconnectScrollObservers();
