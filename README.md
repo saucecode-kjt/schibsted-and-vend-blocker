@@ -23,8 +23,8 @@ Both browser targets are built from the same source — one content script, one 
 
 Dev-only — the extension itself ships zero runtime dependencies:
 
-- [`vite`](https://vitejs.dev/) `^6.0.0` — bundles the content script
-- [`web-ext`](https://github.com/mozilla/web-ext) `^8.3.0` — lint, run, and package both browser targets
+- [`vite`](https://vitejs.dev/) `^8.0.0` — bundles the content script
+- [`web-ext`](https://github.com/mozilla/web-ext) `^10.0.0` — lint, run, and package both browser targets
 
 ## Getting started
 
