@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Schibsted & Vend Blocker",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Schibsted & Vend blocker extension",
   "icons": {
     "16": "icons/logo-16.png",
@@ -30,7 +30,9 @@
         "https://tv4.se/*",
         "https://*.tv4.se/*",
         "https://fotbollskanalen.se/*",
-        "https://*.fotbollskanalen.se/*"
+        "https://*.fotbollskanalen.se/*",
+        "https://minmote.no/*",
+        "https://*.minmote.no/*"
       ],
       "css": ["content-scripts/schibsted-and-vend-blocker.css"],
       "js": ["content-scripts/schibsted-and-vend-blocker.js"],
