@@ -33,6 +33,8 @@
         "https://*.fotbollskanalen.se/*",
         "https://minmote.no/*",
         "https://*.minmote.no/*"
+        "https://godt.no/*",
+        "https://*.godt.no/*"
       ],
       "css": ["content-scripts/schibsted-and-vend-blocker.css"],
       "js": ["content-scripts/schibsted-and-vend-blocker.js"],
